@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name</title>
+<meta name="description" content="Your Name, your role at your institution, working on your research area.">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<!-- REPLACE: your site's address (custom domain, or username.github.io). -->
+<link rel="canonical" href="https://example.github.io/">
+<meta property="og:title" content="Your Name">
+<meta property="og:description" content="Your Role, Your Institution">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://example.github.io/">
+<meta property="og:image" content="https://example.github.io/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Your Name, Your Role · Your Institution">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Structured data: tells search engines who this page is about. Keep it in
+     step with the visible page; list only profiles shown in the footer. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Your Name",
+  "url": "https://example.github.io/",
+  "image": "https://example.github.io/img/portrait.svg",
+  "jobTitle": "Your Role",
+  "affiliation": {
+    "@type": "Organization",
+    "name": "Your Institution"
+  },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Your University"
+    }
+  ],
+  "sameAs": [
+    "https://orcid.org/0000-0000-0000-0000",
+    "https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID",
+    "https://x.com/your_handle"
+  ]
+}
+</script>
+<link rel="preload" href="fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('js');</script>
+<style>
+@font-face{font-family:'Newsreader';src:url('fonts/newsreader-var.woff2') format('woff2');font-weight:200 800;font-style:normal;font-display:swap;}
+@font-face{font-family:'Newsreader';src:url('fonts/newsreader-italic-var.woff2') format('woff2');font-weight:200 800;font-style:italic;font-display:swap;}
+@font-face{font-family:'Inter';src:url('fonts/inter-var.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap;}
+:root{
+  --serif:'Newsreader','Iowan Old Style',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,monospace;
+  --paper:#fdfcf9;--paper-sunk:#f6f4ee;--ink:#1b1a17;--ink-soft:#4a473f;--ink-mute:#6f6b61;
+  --accent:#a4610f;--accent-soft:#c07d2a;--rule:rgba(27,26,23,0.13);
+  --step--1:clamp(0.80rem,0.78rem + 0.10vw,0.86rem);
+  --step-0:clamp(1.00rem,0.96rem + 0.20vw,1.12rem);
+  --step-1:clamp(1.20rem,1.12rem + 0.38vw,1.42rem);
+  --step-3:clamp(1.6rem,1.42rem + 0.9vw,2.2rem);
+  --step-4:clamp(1.95rem,1.6rem + 1.75vw,3.05rem);
+  --shell:68rem;--gutter:clamp(1.5rem,5vw,4rem);--measure:66ch;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#14140f;--paper-sunk:#1b1b16;--ink:#eae7dd;--ink-soft:#b6b1a4;--ink-mute:#8b8679;
+  --accent:#dca35c;--accent-soft:#e8bd83;--rule:rgba(234,231,221,0.16);
+}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:var(--step-0);line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-synthesis-weight:none;text-rendering:optimizeLegibility;}
+::selection{background:var(--accent);color:var(--paper);}
+img{max-width:100%;height:auto;display:block;}
+a{color:var(--accent);}
+a:hover{color:var(--accent-soft);}
+.skip{position:absolute;left:-9999px;}
+.shell{max-width:var(--shell);margin-inline:auto;padding-inline:var(--gutter);}
+
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 82%,transparent);backdrop-filter:blur(12px) saturate(1.2);-webkit-backdrop-filter:blur(12px) saturate(1.2);border-bottom:1px solid var(--rule);}
+.nav__inner{display:flex;align-items:baseline;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;padding-block:1.05rem;}
+.nav__brand{font-family:var(--serif);font-size:1.24rem;font-weight:500;letter-spacing:-0.015em;text-decoration:none;color:var(--ink);}
+.nav__links{display:flex;gap:clamp(1.1rem,2.4vw,2rem);font-size:var(--step--1);list-style:none;}
+.nav__links a{color:var(--ink-soft);text-decoration:none;padding-block:0.15rem;border-bottom:1px solid transparent;transition:color .14s ease,border-color .14s ease;}
+.nav__links a:hover,.nav__links a:focus-visible{color:var(--accent);}
+.nav__links a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent);}
+
+.hero{padding-block:clamp(3rem,7vw,5.5rem) clamp(2.5rem,5vw,4rem);}
+.hero__layout{display:grid;grid-template-columns:minmax(0,1fr);align-items:center;gap:2rem;}
+.eyebrow{font-family:var(--mono);font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);}
+.hero h1{font-family:var(--serif);font-weight:450;font-optical-sizing:auto;letter-spacing:-0.021em;font-size:var(--step-4);line-height:0.99;margin-top:0.9rem;text-wrap:balance;}
+@media (min-width:720px){
+  .hero__layout{grid-template-columns:minmax(0,1fr) auto;gap:3.5rem;}
+}
+
+.section{padding-block:clamp(3rem,6vw,5rem);border-top:1px solid var(--rule);}
+.sec-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem;}
+@media (min-width:896px){.sec-grid{grid-template-columns:12rem minmax(0,1fr);gap:3rem;}}
+.label{font-family:var(--mono);font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);}
+.section h2{font-family:var(--serif);font-weight:400;letter-spacing:-0.021em;line-height:1.06;font-size:var(--step-3);text-wrap:balance;}
+
+.portrait{width:clamp(7rem,12vw,9.5rem);aspect-ratio:1;border-radius:50%;object-fit:cover;filter:grayscale(1);border:1px solid var(--rule);transition:filter .6s ease;}
+.portrait--hero{width:clamp(8.5rem,17vw,12.5rem);}
+.portrait:hover{filter:grayscale(0);}
+.about p{max-width:var(--measure);text-wrap:pretty;}
+.about p + p{margin-top:1.1em;}
+
+.interests,.pubs{list-style:none;margin-top:2.25rem;}
+.interests li{padding-block:1.6rem;}
+.interests li:first-child{padding-top:0;}
+.interests li:last-child{padding-bottom:0;}
+.interests li + li{border-top:1px solid var(--rule);}
+.interests h3{font-family:var(--serif);font-weight:400;font-size:var(--step-1);line-height:1.25;letter-spacing:-0.012em;}
+.interests p{margin-top:0.5rem;color:var(--ink-soft);max-width:58ch;text-wrap:pretty;}
+
+.pubs li{padding-block:1.65rem;display:grid;grid-template-columns:minmax(0,1fr);gap:0.35rem;}
+.pubs li:first-child{padding-top:0;}
+.pubs li + li{border-top:1px solid var(--rule);}
+@media (min-width:640px){.pubs li{grid-template-columns:5.5rem minmax(0,1fr);gap:0.35rem 1.5rem;}.pubs__year{grid-column:1;grid-row:1;}.pubs li > :not(.pubs__year){grid-column:2;}}
+.pubs__year{font-family:var(--mono);font-size:0.74rem;font-weight:500;letter-spacing:0.02em;color:var(--ink-mute);padding-top:0.45rem;}
+.pubs__title{font-family:var(--serif);font-size:var(--step-1);font-weight:400;line-height:1.3;letter-spacing:-0.012em;text-wrap:pretty;}
+.pubs__title a{color:inherit;text-decoration:none;transition:color .14s ease;}
+.pubs__title a:hover{color:var(--accent);}
+.pubs__authors{font-size:var(--step--1);color:var(--ink-soft);line-height:1.55;}
+.pubs__authors .self{font-weight:600;color:var(--ink);}
+.pubs__authors sup{font-size:0.7em;font-weight:500;}
+.pubs__authors em{font-family:var(--serif);color:var(--ink-soft);}
+.pubs__note{font-size:0.78rem;line-height:1.5;color:var(--ink-mute);margin-top:0.15rem;}
+.pubs__note sup{font-size:0.8em;font-weight:500;}
+.pubs__links{display:flex;flex-wrap:wrap;gap:0.5rem 1rem;margin-top:0.35rem;font-size:var(--step--1);}
+.pubs__links a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .14s ease;}
+.pubs__links a:hover{border-bottom-color:currentColor;}
+.more{margin-top:2.25rem;}
+.more a{font-size:var(--step--1);font-weight:500;color:var(--accent);text-decoration:none;white-space:nowrap;}
+.more a .tip{display:inline-block;transition:transform .16s ease;}
+.more a:hover .tip{transform:translateX(3px);}
+
+.footer{border-top:1px solid var(--rule);background:var(--paper-sunk);padding-block:clamp(2.5rem,5vw,4rem);margin-top:clamp(3rem,6vw,5rem);}
+.footer__inner{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;}
+.footer__brand{font-family:var(--serif);font-size:1.24rem;}
+.footer__meta-line{font-size:0.74rem;letter-spacing:0.06em;color:var(--ink-mute);margin-top:0.6rem;}
+.footer__col{display:flex;flex-direction:column;gap:1.05rem;}
+.footer__links{display:flex;gap:1.5rem;list-style:none;font-size:var(--step--1);flex-wrap:wrap;}
+.footer__links a{color:var(--ink-soft);text-decoration:none;transition:color .14s ease;}
+.footer__links a:hover{color:var(--accent);}
+.socials{display:flex;align-items:center;gap:1.15rem;}
+.socials a{display:inline-flex;color:var(--accent);transition:color .14s ease,transform .2s ease;}
+.socials a:hover{color:var(--accent-soft);transform:translateY(-2px);}
+
+/* Scroll reveals only hide content when the script that reveals it is running. */
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
+.js .reveal.in{opacity:1;transform:none;}
+@keyframes riseIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+.rise{animation:riseIn .8s ease both;}
+.rise.d1{animation-delay:.05s;}.rise.d2{animation-delay:.16s;}.rise.d3{animation-delay:.30s;}.rise.d4{animation-delay:.42s;}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms !important;animation-delay:0ms !important;transition-duration:.001ms !important;}.js .reveal{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="shell nav__inner">
+    <a class="nav__brand" href="index.html">Your Name</a>
+    <ul class="nav__links">
+      <li><a href="index.html" aria-current="page">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+  <header class="hero shell">
+    <div class="hero__layout">
+      <div>
+        <p class="eyebrow rise d1">Your Role · Your Institution</p>
+        <h1 class="rise d2">Your Name</h1>
+      </div>
+      <img class="portrait portrait--hero rise d3" src="img/portrait.svg" alt="Your Name" width="600" height="600">
+    </div>
+  </header>
+
+  <section class="section" id="about">
+    <div class="shell sec-grid">
+      <p class="label reveal">About</p>
+      <div class="about reveal">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="research">
+    <div class="shell sec-grid">
+      <p class="label reveal">Research</p>
+      <div>
+        <h2 class="reveal">Interests</h2>
+        <ol class="interests">
+          <li class="reveal">
+            <h3>Research interest one</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+          </li>
+          <li class="reveal">
+            <h3>Research interest two</h3>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </li>
+          <li class="reveal">
+            <h3>Research interest three</h3>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="selected">
+    <div class="shell sec-grid">
+      <p class="label reveal">Selected work</p>
+      <div>
+        <h2 class="reveal">Publications</h2>
+        <ol class="pubs">
+          <li class="reveal">
+            <span class="pubs__year">2025</span>
+            <h3 class="pubs__title"><a href="#">Title of a research article</a></h3>
+            <p class="pubs__authors"><span class="self">Name Y</span><sup>*</sup>, Colleague A<sup>*</sup>, Collaborator B, &hellip; Mentor C. <em>Journal Name</em></p>
+            <p class="pubs__note"><sup>*</sup>&#8201;Co-first authors can be reported in any order</p>
+            <div class="pubs__links">
+              <a href="#">DOI</a>
+              <a href="#">PDF</a>
+              <a href="#">News &amp; Views</a>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="pubs__year">2023</span>
+            <h3 class="pubs__title"><a href="#">Title of a second research article</a></h3>
+            <p class="pubs__authors">Colleague D, <span class="self">Name Y</span><sup>#</sup>, &hellip; Mentor C<sup>#</sup>. <em>Another Journal</em></p>
+            <div class="pubs__links">
+              <a href="#">DOI</a>
+              <a href="#">PDF</a>
+            </div>
+          </li>
+          <li class="reveal">
+            <span class="pubs__year">2020</span>
+            <h3 class="pubs__title"><a href="#">Title of an earlier research article</a></h3>
+            <p class="pubs__authors"><span class="self">Name Y</span>, Colleague E, &hellip; Mentor F. <em>Journal Name</em></p>
+            <div class="pubs__links">
+              <a href="#">DOI</a>
+              <a href="#">PDF</a>
+              <a href="#">Feature</a>
+            </div>
+          </li>
+        </ol>
+        <p class="more reveal"><a href="publications.html">All publications<span class="tip"> →</span></a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="shell footer__inner">
+    <div>
+      <p class="footer__brand">Your Name</p>
+      <p class="footer__meta-line">Your Institution · City</p>
+    </div>
+    <div class="footer__col">
+      <ul class="footer__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="publications.html">Publications</a></li>
+      </ul>
+      <div class="socials">
+        <a id="email-link" href="#" aria-label="Email" title="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5"></rect><path d="M4 7.2l8 5.8 8-5.8"></path></svg></a>
+        <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" aria-label="Google Scholar" title="Google Scholar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5L2.8 9.6l9.2 4.6 9.2-4.6L12 5z"></path><path d="M6.8 12.2v3c0 1.5 2.3 2.9 5.2 2.9s5.2-1.4 5.2-2.9v-3"></path><path d="M21.2 9.6v4.5"></path></svg></a>
+        <a href="https://x.com/your_handle" aria-label="X" title="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+        <a href="https://orcid.org/0000-0000-0000-0000" aria-label="ORCID" title="ORCID"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="12"></circle><text x="12" y="16.1" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10.5" font-weight="600" fill="var(--paper)">iD</text></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Scroll reveals
+  var els = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if (reduce) { els.forEach(function(el){ el.classList.add('in'); }); }
+  else {
+    var pending = new Set(els);
+    function check(){
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      pending.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < vh*0.92 && r.bottom > 0){ el.classList.add('in'); pending.delete(el); }
+      });
+      if (!pending.size){ window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); }
+    }
+    var ticking = false;
+    function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(function(){ ticking = false; check(); }); } }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+    check(); setTimeout(check, 400);
+  }
+
+})();
+</script>
+<script>
+// Email anti-spam: the address is stored as character codes (never as plain
+// text in the page source), so naive scrapers can't harvest it. A real browser
+// rebuilds the working mailto: link on load.
+(function(){
+  var a = document.getElementById('email-link');
+  if (!a) return;
+  var c = [121,111,117,64,101,120,97,109,112,108,101,46,101,100,117];
+  var e = String.fromCharCode.apply(null, c);
+  a.setAttribute('href', 'mailto:' + e);
+})();
+</script>
+</body>
+</html>

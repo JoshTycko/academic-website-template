@@ -1,0 +1,937 @@
+/* ============================================================
+   Personal academic website
+   Design system. One stylesheet, no build step, no dependencies.
+   ============================================================ */
+
+/* ---------- Fonts (self-hosted, variable) ---------- */
+
+@font-face {
+  font-family: 'Newsreader';
+  src: url('../fonts/newsreader-var.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Newsreader';
+  src: url('../fonts/newsreader-italic-var.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/inter-var.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Tokens ---------- */
+
+:root {
+  --serif: 'Newsreader', 'Iowan Old Style', Georgia, serif;
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Monospace for years, counts, labels, and IDs. */
+  --mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  /* Colors: background, text, and one accent. */
+  --paper: #fdfcf9;
+  --paper-sunk: #f6f4ee;
+  --ink: #1b1a17;
+  --ink-soft: #4a473f;
+  --ink-mute: #6f6b61;
+  --accent: #a4610f;
+  --accent-soft: #c07d2a;
+  --rule: rgba(27, 26, 23, 0.13);
+  --rule-strong: rgba(27, 26, 23, 0.28);
+
+  /* Fluid modular scale. */
+  --step--1: clamp(0.80rem, 0.78rem + 0.10vw, 0.86rem);
+  --step-0: clamp(1.00rem, 0.96rem + 0.20vw, 1.12rem);
+  --step-1: clamp(1.20rem, 1.12rem + 0.38vw, 1.42rem);
+  --step-2: clamp(1.50rem, 1.34rem + 0.75vw, 2.00rem);
+  --step-3: clamp(1.6rem, 1.42rem + 0.9vw, 2.2rem);
+  --step-4: clamp(1.95rem, 1.6rem + 1.75vw, 3.05rem);
+
+  --measure: 66ch;
+  --gutter: clamp(1.5rem, 5vw, 4rem);
+  --shell: 68rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #14140f;
+    --paper-sunk: #1b1b16;
+    --ink: #eae7dd;
+    --ink-soft: #b6b1a4;
+    --ink-mute: #8b8679;
+    --accent: #dca35c;
+    --accent-soft: #e8bd83;
+    --rule: rgba(234, 231, 221, 0.16);
+    --rule-strong: rgba(234, 231, 221, 0.34);
+  }
+}
+
+/* ---------- Reset ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Anchor targets clear the sticky nav. */
+  scroll-padding-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+/* ---------- Type ---------- */
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-optical-sizing: auto;
+  letter-spacing: -0.021em;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--step-4);
+  line-height: 0.99;
+}
+
+h2 {
+  font-size: var(--step-3);
+}
+
+h3 {
+  font-size: var(--step-1);
+  line-height: 1.25;
+  letter-spacing: -0.012em;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Small tracked-out uppercase label. */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.eyebrow--mute {
+  color: var(--ink-mute);
+}
+
+.lede {
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 54ch;
+}
+
+/* Marker key (* and #) under the Publications heading. */
+.pubs-legend {
+  margin-top: 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-mute);
+}
+
+/* Author-list markers (* equal, # co-corresponding) read as superscripts. */
+.pubs__authors sup {
+  font-size: 0.7em;
+  font-weight: 500;
+}
+
+.prose p {
+  max-width: var(--measure);
+}
+
+.prose p + p {
+  margin-top: 1.1em;
+}
+
+.prose em,
+.serif-italic {
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+/* ---------- Links ---------- */
+
+a {
+  color: inherit;
+  text-decoration-color: var(--rule-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: color 140ms ease, text-decoration-color 140ms ease;
+}
+
+a:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* Standalone link with a trailing arrow. */
+.arrow {
+  font-size: var(--step--1);
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.arrow::after {
+  content: ' \2192';
+  display: inline-block;
+  transition: transform 160ms ease;
+}
+
+.arrow:hover::after {
+  transform: translateX(3px);
+}
+
+/* ---------- Layout ---------- */
+
+.shell {
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip:focus {
+  left: var(--gutter);
+  top: 0.75rem;
+  z-index: 100;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--rule-strong);
+}
+
+/* ---------- Nav ---------- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--paper) 82%, transparent);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-block: 1.05rem;
+}
+
+.nav__brand {
+  font-family: var(--serif);
+  font-size: 1.24rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  text-decoration: none;
+}
+
+.nav__brand:hover {
+  color: var(--accent);
+}
+
+.nav__links {
+  display: flex;
+  gap: clamp(1.1rem, 2.4vw, 2rem);
+  font-size: var(--step--1);
+  list-style: none;
+}
+
+.nav__links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding-block: 0.15rem;
+  border-bottom: 1px solid transparent;
+}
+
+.nav__links a:hover {
+  color: var(--accent);
+}
+
+.nav__links a[aria-current='page'] {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding-block: clamp(3.5rem, 9vw, 7.5rem) clamp(3rem, 7vw, 5.5rem);
+}
+
+.hero h1 {
+  margin-top: 1.25rem;
+  max-width: 20ch;
+  font-weight: 450;
+}
+
+.hero .lede {
+  margin-top: 1.75rem;
+}
+
+.hero__meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem 2rem;
+  flex-wrap: wrap;
+  margin-top: 2.25rem;
+}
+
+/* ---------- Sections ---------- */
+
+.section {
+  padding-block: clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid var(--rule);
+}
+
+/* Label in a narrow left column, content on the right. Collapses on mobile. */
+.section__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 56rem) {
+  .section__grid {
+    grid-template-columns: 12rem minmax(0, 1fr);
+    gap: 3rem;
+  }
+  .section__grid > .eyebrow {
+    padding-top: 0.55rem;
+  }
+}
+
+.section h2 + .prose,
+.section h2 + .list {
+  margin-top: 1.75rem;
+}
+
+/* ---------- Research interests ---------- */
+
+/* Unnumbered list separated by hairline rules. */
+.interests {
+  list-style: none;
+}
+
+.interests li {
+  padding-block: 1.6rem;
+  border-top: 1px solid var(--rule);
+}
+
+.interests li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.interests p {
+  margin-top: 0.5rem;
+  color: var(--ink-soft);
+  max-width: 58ch;
+}
+
+/* ---------- Publications: hanging year ---------- */
+
+.pubs {
+  list-style: none;
+}
+
+.pubs > li {
+  padding-block: 1.65rem;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.35rem;
+}
+
+.pubs > li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+@media (min-width: 40rem) {
+  .pubs > li {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 0.35rem 1.5rem;
+  }
+  /* Year pinned to the left column; every other child stacks in the right one,
+     however many there are. A fixed row span breaks as soon as an entry gains a
+     line, such as an author-order note. */
+  .pubs__year {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .pubs > li > :not(.pubs__year) {
+    grid-column: 2;
+  }
+}
+
+.pubs__year {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--ink-mute);
+  padding-top: 0.45rem;
+}
+
+.pubs__title {
+  font-family: var(--serif);
+  font-size: var(--step-1);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.012em;
+  text-wrap: pretty;
+}
+
+/* Title links to the paper; reads as plain text until hovered. */
+.pubs__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pubs__title a:hover {
+  color: var(--accent);
+}
+
+/* Countdown index above the year in the hanging column. */
+.pubs__num {
+  display: block;
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.pubs__authors {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.pubs__authors .self {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.pubs__venue {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* Row of small links under a publication: DOI · PDF · Code */
+.pubs__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 0.35rem;
+  font-size: var(--step--1);
+}
+
+.pubs__links a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.pubs__links a:hover {
+  border-bottom-color: currentColor;
+}
+
+/* Type badge: Research / Review / Protocol / Preprint. Neutral by default;
+   preprints take the accent to flag not-yet-peer-reviewed work. */
+.pubs__tag {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  padding: 0.16rem 0.45rem;
+  align-self: center;
+}
+
+/* Patent / accession identifier — mono, like the rest of the data layer. */
+.pubs__id {
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+}
+
+.pubs__tag--preprint {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.pubs__tag--review,
+.pubs__tag--protocol {
+  color: var(--ink-soft);
+}
+
+/* ---------- CV ---------- */
+
+.cv-group + .cv-group {
+  margin-top: 2.75rem;
+}
+
+.cv-list {
+  list-style: none;
+}
+
+.cv-list > li {
+  padding-block: 1.15rem;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.2rem;
+}
+
+.cv-list > li:first-child {
+  border-top: 0;
+}
+
+@media (min-width: 40rem) {
+  .cv-list > li {
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: 0.2rem 1.5rem;
+  }
+  .cv-list__when {
+    grid-row: span 2;
+  }
+}
+
+.cv-list__when {
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.3rem;
+}
+
+.cv-list__what {
+  font-family: var(--serif);
+  font-size: var(--step-1);
+  line-height: 1.3;
+}
+
+.cv-list__where {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+/* ---------- Button ---------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: var(--step--1);
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 0.85rem 1.4rem;
+  border-radius: 2px;
+  border: 1px solid var(--ink);
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.button:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+}
+
+.button--ghost {
+  color: var(--ink);
+  background: transparent;
+  border-color: var(--rule-strong);
+}
+
+.button--ghost:hover {
+  color: var(--paper);
+}
+
+/* ---------- Portrait ---------- */
+
+.portrait {
+  width: clamp(7rem, 12vw, 9.5rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(1);
+  border: 1px solid var(--rule);
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  border-top: 1px solid var(--rule);
+  background: var(--paper-sunk);
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer__links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  font-size: var(--step--1);
+  flex-wrap: wrap;
+}
+
+.footer__links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.footer__links a:hover {
+  color: var(--accent);
+}
+
+.footer__fine {
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-mute);
+}
+
+/* Right-hand footer column: text links above a row of profile icons. */
+.footer__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.05rem;
+}
+
+.footer__icons {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+@media (min-width: 40rem) {
+  .footer__meta {
+    align-items: flex-end;
+  }
+}
+
+/* ---------- Utilities ---------- */
+
+.stack > * + * {
+  margin-top: var(--stack-gap, 1rem);
+}
+
+.center-col {
+  max-width: 42rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* ---------- Hero layout: name beside the portrait on wider screens ---------- */
+
+@media (min-width: 56rem) {
+  .hero__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 3.5rem;
+  }
+}
+
+/* ---------- Publications type filter (CSS-only) ----------
+   Radio buttons drive which entries show; no JavaScript. Default is "All".
+   The countdown numerals only make sense across the whole list, so they hide
+   when a single type is selected. */
+
+.pubfilter__radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pubfilter__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.25rem;
+}
+
+.pubfilter__chips label {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.pubfilter__chips label:hover {
+  color: var(--accent);
+}
+
+/* Active chip. */
+#pf-all:checked ~ .pubfilter__chips label[for='pf-all'],
+#pf-selected:checked ~ .pubfilter__chips label[for='pf-selected'],
+#pf-research:checked ~ .pubfilter__chips label[for='pf-research'],
+#pf-review:checked ~ .pubfilter__chips label[for='pf-review'],
+#pf-protocol:checked ~ .pubfilter__chips label[for='pf-protocol'],
+#pf-preprint:checked ~ .pubfilter__chips label[for='pf-preprint'] {
+  color: var(--paper);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+/* Keyboard focus ring on the corresponding chip. */
+#pf-all:focus-visible ~ .pubfilter__chips label[for='pf-all'],
+#pf-selected:focus-visible ~ .pubfilter__chips label[for='pf-selected'],
+#pf-research:focus-visible ~ .pubfilter__chips label[for='pf-research'],
+#pf-review:focus-visible ~ .pubfilter__chips label[for='pf-review'],
+#pf-protocol:focus-visible ~ .pubfilter__chips label[for='pf-protocol'],
+#pf-preprint:focus-visible ~ .pubfilter__chips label[for='pf-preprint'] {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Hide non-matching entries. */
+#pf-selected:checked ~ .pubs > li:not([data-selected]),
+#pf-research:checked ~ .pubs > li:not([data-type='research']),
+#pf-review:checked ~ .pubs > li:not([data-type='review']),
+#pf-protocol:checked ~ .pubs > li:not([data-type='protocol']),
+#pf-preprint:checked ~ .pubs > li:not([data-type='preprint']) {
+  display: none;
+}
+
+/* Re-hang the top-of-list border when the first visible item changes. */
+.pubs--numbered > li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+/* Hide the countdown numerals unless viewing everything. */
+#pf-selected:checked ~ .pubs .pubs__num,
+#pf-research:checked ~ .pubs .pubs__num,
+#pf-review:checked ~ .pubs .pubs__num,
+#pf-protocol:checked ~ .pubs .pubs__num,
+#pf-preprint:checked ~ .pubs .pubs__num {
+  visibility: hidden;
+}
+
+/* Small icon-only link (ORCID). Color-only hover, like the arrows. */
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent);
+  transition: color 140ms ease;
+}
+
+.icon-link:hover {
+  color: var(--accent-soft);
+}
+
+/* ---------- Cross-page view transitions ----------
+   Progressive enhancement: pages soft-crossfade into each other while the
+   brand and the active nav underline stay anchored. Browsers without
+   support (or readers preferring reduced motion) get instant navigation. */
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 220ms;
+  }
+
+  .nav__brand {
+    view-transition-name: nav-brand;
+  }
+
+  .nav__links a[aria-current='page'] {
+    view-transition-name: active-nav-link;
+  }
+}
+
+/* ---------- Publications page: sticky section index ----------
+   Three stacked sections (Publications / Patents / Other writing) with an index
+   in the left rail that tracks the one you are reading. Below 56rem the rail
+   becomes a strip under the page header and each section carries its own label. */
+.pubpage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pubpage__main > .section {
+  scroll-margin-top: 4.5rem;
+}
+
+.secnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  padding-bottom: 1.25rem;
+}
+
+.secnav__link {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  text-decoration: none;
+  transition: color 140ms ease;
+}
+
+.secnav__link:hover,
+.secnav__link:focus-visible {
+  color: var(--accent);
+}
+
+.secnav__link.is-current {
+  color: var(--ink);
+}
+
+@media (min-width: 56rem) {
+  .pubpage {
+    grid-template-columns: 12rem minmax(0, 1fr);
+    gap: 3rem;
+  }
+  .pubpage__aside {
+    padding-top: clamp(3rem, 6vw, 5rem);
+  }
+  .secnav {
+    position: sticky;
+    top: 5.5rem;
+    display: grid;
+    gap: 0.9rem;
+    padding-bottom: 0;
+  }
+  .secnav__link {
+    position: relative;
+    padding-left: 0.95rem;
+  }
+  .secnav__link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.44em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--rule-strong);
+    transition: background 140ms ease;
+  }
+  .secnav__link.is-current::before {
+    background: var(--accent);
+  }
+  /* The rail labels the sections on desktop, so the in-section label is redundant. */
+  .section__label {
+    display: none;
+  }
+}
+
+/* Author-order footnote under a publication's author list, e.g. when co-first
+   authors are listed alphabetically. */
+.pubs__note {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--ink-mute);
+  margin-top: 0.15rem;
+}
+
+.pubs__note sup {
+  font-size: 0.8em;
+  font-weight: 500;
+}

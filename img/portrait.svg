@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Placeholder portrait">
+  <style>
+    .bg { fill: #f6f4ee; }
+    .line { fill: none; stroke: #1b1a17; stroke-opacity: 0.4; stroke-width: 3; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #1b1b16; }
+      .line { stroke: #eae7dd; }
+    }
+  </style>
+  <rect class="bg" width="600" height="600"/>
+  <g class="line">
+    <circle cx="300" cy="232" r="104"/>
+    <path d="M118 522 c0 -106 82 -168 182 -168 s182 62 182 168"/>
+  </g>
+</svg>

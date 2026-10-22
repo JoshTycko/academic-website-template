@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Publications &middot; Your Name</title>
+<meta name="description" content="Publications by Your Name, your role at your institution.">
+
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+
+<!-- REPLACE: your site's address (custom domain, or username.github.io). -->
+<link rel="canonical" href="https://example.github.io/publications.html">
+<meta property="og:title" content="Publications &middot; Your Name">
+<meta property="og:description" content="Publications by Your Name.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://example.github.io/publications.html">
+<meta property="og:image" content="https://example.github.io/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Your Name, Your Role · Your Institution">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="shell nav__inner">
+    <a class="nav__brand" href="index.html">Your Name</a>
+    <ul class="nav__links">
+      <li><a href="index.html">About</a></li>
+      <li><a href="index.html#research">Research</a></li>
+      <li><a href="publications.html" aria-current="page">Publications</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ============ PAGE HEADER ============ -->
+  <header class="hero shell">
+    <p class="eyebrow">Full list</p>
+    <h1>Publications</h1>
+    <p class="pubs-legend"><sup>*</sup>&#8201;equal contribution &nbsp; <sup>#</sup>&#8201;co-corresponding author</p>
+  </header>
+
+  <div class="shell pubpage">
+    <aside class="pubpage__aside">
+      <nav class="secnav" aria-label="Sections on this page">
+        <a class="secnav__link" href="#publications">Publications</a>
+        <a class="secnav__link" href="#patents">Patents</a>
+        <a class="secnav__link" href="#other">Other writing</a>
+      </nav>
+    </aside>
+    <div class="pubpage__main">
+      <section class="section" id="publications">
+        <p class="eyebrow eyebrow--mute section__label">Publications</p>
+      <div class="pubfilter">
+        <!-- CSS-only type filter: radios drive visibility of the list below. -->
+        <input class="pubfilter__radio" type="radio" name="pubtype" id="pf-all" checked>
+        <input class="pubfilter__radio" type="radio" name="pubtype" id="pf-selected">
+        <input class="pubfilter__radio" type="radio" name="pubtype" id="pf-research">
+        <input class="pubfilter__radio" type="radio" name="pubtype" id="pf-review">
+        <input class="pubfilter__radio" type="radio" name="pubtype" id="pf-protocol">
+        <input class="pubfilter__radio" type="radio" name="pubtype" id="pf-preprint">
+        <div class="pubfilter__chips">
+          <label for="pf-all">All</label>
+          <label for="pf-selected">Selected</label>
+          <label for="pf-research">Research</label>
+          <label for="pf-review">Reviews</label>
+          <label for="pf-protocol">Protocols</label>
+          <label for="pf-preprint">Preprints</label>
+        </div>
+
+        <ol class="pubs pubs--numbered">
+          <li data-type="preprint">
+            <span class="pubs__year"><span class="pubs__num">7</span>2026</span>
+            <h3 class="pubs__title"><a href="#">Title of a preprint</a></h3>
+            <p class="pubs__authors">
+              <span class="self">Name Y</span>, Colleague G, &hellip; Mentor C.
+              <span class="pubs__venue">bioRxiv</span>
+            </p>
+            <div class="pubs__links">
+              <span class="pubs__tag pubs__tag--preprint">Preprint</span>
+              <a href="#">bioRxiv</a>
+            </div>
+          </li>
+          <li data-type="research" data-selected>
+            <span class="pubs__year"><span class="pubs__num">6</span>2025</span>
+            <h3 class="pubs__title"><a href="#">Title of a research article</a></h3>
+            <p class="pubs__authors">
+              <span class="self">Name Y</span><sup>*</sup>, Colleague A<sup>*</sup>, Collaborator B, &hellip; Mentor C.
+              <span class="pubs__venue">Journal Name</span>
+            </p>
+            <p class="pubs__note"><sup>*</sup>&#8201;Co-first authors can be reported in any order</p>
+            <div class="pubs__links">
+              <span class="pubs__tag">Research</span>
+              <a href="#">DOI</a>
+              <a href="#">PDF</a>
+              <a href="#">News &amp; Views</a>
+            </div>
+          </li>
+          <li data-type="review">
+            <span class="pubs__year"><span class="pubs__num">5</span>2024</span>
+            <h3 class="pubs__title"><a href="#">Title of a review</a></h3>
+            <p class="pubs__authors">
+              Colleague H, <span class="self">Name Y</span>, Mentor C.
+              <span class="pubs__venue">Review Journal</span>
+            </p>
+            <div class="pubs__links">
+              <span class="pubs__tag pubs__tag--review">Review</span>
+              <a href="#">DOI</a>
+              <a href="#">PDF</a>
+            </div>
+          </li>
+          <li data-type="research" data-selected>
+            <span class="pubs__year"><span class="pubs__num">4</span>2023</span>
+            <h3 class="pubs__title"><a href="#">Title of a second research article</a></h3>
+            <p class="pubs__authors">
+              Colleague D, <span class="self">Name Y</span><sup>#</sup>, &hellip; Mentor C<sup>#</sup>.
+              <span class="pubs__venue">Another Journal</span>
+            </p>
+            <div class="pubs__links">
+              <span class="pubs__tag">Research</span>
+              <a href="#">DOI</a>
+              <a href="#">PDF</a>
+            </div>
+          </li>
+          <li data-type="protocol">
+            <span class="pubs__year"><span class="pubs__num">3</span>2022</span>
+            <h3 class="pubs__title"><a href="#">Title of a protocol</a></h3>
+            <p class="pubs__authors">
+              <span class="self">Name Y</span>, Colleague E, Mentor F.
+              <span class="pubs__venue">Protocols Journal</span>
+            </p>
+            <div class="pubs__links">
+              <span class="pubs__tag pubs__tag--protocol">Protocol</span>
+              <a href="#">DOI</a>
+            </div>
+          </li>
+          <li data-type="research">
+            <span class="pubs__year"><span class="pubs__num">2</span>2021</span>
+            <h3 class="pubs__title"><a href="#">Title of a third research article</a></h3>
+            <p class="pubs__authors">
+              Collaborator I, Collaborator J, &hellip; <span class="self">Name Y</span>, &hellip; Senior Author K.
+              <span class="pubs__venue">Journal Name</span>
+            </p>
+            <div class="pubs__links">
+              <span class="pubs__tag">Research</span>
+              <a href="#">DOI</a>
+            </div>
+          </li>
+          <li data-type="research" data-selected>
+            <span class="pubs__year"><span class="pubs__num">1</span>2020</span>
+            <h3 class="pubs__title"><a href="#">Title of an earlier research article</a></h3>
+            <p class="pubs__authors">
+              <span class="self">Name Y</span>, Colleague E, &hellip; Mentor F.
+              <span class="pubs__venue">Journal Name</span>
+            </p>
+            <div class="pubs__links">
+              <span class="pubs__tag">Research</span>
+              <a href="#">DOI</a>
+              <a href="#">PDF</a>
+              <a href="#">Feature</a>
+            </div>
+          </li>
+        </ol>
+
+        <p style="margin-top: 3rem;">
+          The complete and current list is available on
+          <a class="arrow" href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID">Google Scholar</a>
+        </p>
+      </div>
+      </section>
+      <section class="section" id="patents">
+        <p class="eyebrow eyebrow--mute section__label">Patents</p>
+      <div>
+        <ol class="pubs">
+          <li>
+            <span class="pubs__year">2024</span>
+            <h3 class="pubs__title"><a href="#">Title of a patent</a></h3>
+            <p class="pubs__authors"><span class="pubs__id">WO 2024/000000</span> &middot; Application</p>
+          </li>
+        </ol>
+      </div>
+      </section>
+      <section class="section" id="other">
+        <p class="eyebrow eyebrow--mute section__label">Other writing</p>
+      <div>
+        <ol class="pubs">
+          <li>
+            <span class="pubs__year">2022</span>
+            <h3 class="pubs__title"><a href="#">Title of a dissertation</a></h3>
+            <p class="pubs__authors"><span class="self">Name Y</span>. <span class="pubs__venue">Ph.D. dissertation, Your University</span></p>
+            <div class="pubs__links">
+              <a href="#">University repository</a>
+            </div>
+          </li>
+          <li>
+            <span class="pubs__year">2018</span>
+            <h3 class="pubs__title"><a href="#">Title of an essay</a></h3>
+            <p class="pubs__authors"><span class="self">Name Y</span>. <span class="pubs__venue">Venue</span>, essay</p>
+            <div class="pubs__links">
+              <a href="#">PDF</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+      </section>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="shell footer__inner">
+    <div>
+      <p style="font-family: var(--serif); font-size: 1.24rem;">Your Name</p>
+      <p class="footer__fine" style="margin-top: 0.6rem;">
+        Your Institution &middot; City
+      </p>
+    </div>
+    <div class="footer__meta">
+      <ul class="footer__links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="publications.html">Publications</a></li>
+      </ul>
+      <div class="footer__icons">
+        <a class="icon-link" id="email-link" href="#" aria-label="Email" title="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5.5" width="18" height="13" rx="1.5"/>
+            <path d="M4 7.2l8 5.8 8-5.8"/>
+          </svg>
+        </a>
+        <a class="icon-link" href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" aria-label="Google Scholar" title="Google Scholar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 5L2.8 9.6l9.2 4.6 9.2-4.6L12 5z"/>
+            <path d="M6.8 12.2v3c0 1.5 2.3 2.9 5.2 2.9s5.2-1.4 5.2-2.9v-3"/>
+            <path d="M21.2 9.6v4.5"/>
+          </svg>
+        </a>
+        <a class="icon-link" href="https://x.com/your_handle" aria-label="X" title="X">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <a class="icon-link" href="https://orcid.org/0000-0000-0000-0000" aria-label="ORCID" title="ORCID">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <circle cx="12" cy="12" r="12"/>
+            <text x="12" y="16.1" text-anchor="middle"
+                  font-family="Inter, system-ui, sans-serif" font-size="10.5"
+                  font-weight="600" fill="var(--paper)">iD</text>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Email anti-spam: the address is stored as character codes (never as plain
+// text in the page source), so naive scrapers can't harvest it. A real browser
+// rebuilds the working mailto: link on load.
+(function(){
+  var a = document.getElementById('email-link');
+  if (!a) return;
+  var c = [121,111,117,64,101,120,97,109,112,108,101,46,101,100,117];
+  var e = String.fromCharCode.apply(null, c);
+  a.setAttribute('href', 'mailto:' + e);
+})();
+</script>
+<script>
+// Sticky section index: mark the section currently in view.
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.secnav__link'));
+  if (!links.length) return;
+  var targets = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function update(){
+    var vh = window.innerHeight || document.documentElement.clientHeight, best = 0;
+    for (var i = 0; i < targets.length; i++){
+      if (targets[i] && targets[i].getBoundingClientRect().top <= vh*0.35) best = i;
+    }
+    for (var j = 0; j < links.length; j++){
+      links[j].classList.toggle('is-current', j === best);
+      if (j === best) { links[j].setAttribute('aria-current','true'); }
+      else { links[j].removeAttribute('aria-current'); }
+    }
+  }
+  var ticking = false;
+  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(function(){ ticking = false; update(); }); } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+</script>
+</body>
+</html>
