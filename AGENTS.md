@@ -78,8 +78,10 @@ follow its steps.
   choice.
 - **Fail loudly.** If a source is missing or a check fails, stop and report it.
   Don't silently skip an entry.
-- **Ask before publishing.** `git push` makes changes public within a minute.
-  Commit freely, but confirm with the owner before every push.
+- **Ask before publishing.** Deploying makes changes public within a minute.
+  Commit freely, but confirm with the owner before every deploy. If the repo
+  has a `site` remote, the site uses private history (see `deploy-site`): deploy
+  with `bash tools/publish.sh`, never by pushing to `site` directly.
 - **Look before you claim it works.** After any visual change, run the
   `visual-check` workflow and actually look at the screenshots.
 - Keep the design consistent. If you propose a visual change, show a before and

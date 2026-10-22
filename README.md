@@ -68,6 +68,7 @@ then open <http://localhost:8000>. Helper scripts in `tools/`:
 - `encode-email.py` encodes your email address for the footer link.
 - `make-og-image.py` renders a name-and-role preview card, for sites without
   a headshot.
+- `publish.sh` publishes a history-free snapshot (private-history setup).
 - `screenshots.sh` takes 12 screenshots (3 pages × desktop/phone × light/dark)
   with headless Chrome.
 
@@ -76,9 +77,16 @@ website) ready to paste in.
 
 ## Deploying
 
-Name the repository `YOUR-USERNAME.github.io`, push it, and turn on Pages. The
-site serves at `https://YOUR-USERNAME.github.io/`, and every later `git push`
-redeploys it. The `deploy-site` workflow covers this and custom domains.
+The site hosts free on GitHub Pages at `https://YOUR-USERNAME.github.io/`, or
+on your own domain. On GitHub's free plan, Pages serves from a public
+repository, which would make your files, full edit history, and commit messages
+public too. The `deploy-site` workflow offers three setups:
+
+- **Private history (recommended, free):** your full history stays in a private
+  repo, and `tools/publish.sh` publishes a single snapshot of just the site
+  files to the public one.
+- **Private repo with GitHub Pro (paid):** one private repo; `git push` deploys.
+- **Fully public repo (free):** one public repo; `git push` deploys.
 
 ## License
 
